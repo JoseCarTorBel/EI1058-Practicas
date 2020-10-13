@@ -12,20 +12,19 @@
 
 int main(int argc, char *argv[])
 {
-	if(argc!=2){
-		printf("Error. Ejecución -> ./prog codigo\n");
+	if(argc!=1){
+		printf("Error. Ejecución -> ./prog\n");
 	}
 
-	int i, pid, estado;
+	int pid, estado;
 	
 	if(fork()!=0) /* PADRE */ 
 	{
 		pid=wait(&estado);
 		estado = estado & 0x0000ff00;
 		estado = estado>>8;
-		printf("Hola soy el padre y mi hijo me ha dado esto %d\n",estado);
+		exit(estado);
 	}else{
-		printf("Hola soy el hijo de mi padre y mi código es %d\n",atoi(argv[1]) );
-		exit(atoi(argv[1]));	
+		exit(1);	
 	}
 }

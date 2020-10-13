@@ -15,9 +15,7 @@ int main(int argc, char *argv[])
 
 	close(1);
 	open(argv[1],O_WRONLY|O_CREAT|O_APPEND,0777);
-	
-	write(1,&dato,sizeof(dato));
-	
+		
 	execlp("ls","ls","-l",argv[2],NULL);
 	perror("Error ejecucanto ls");
 	exit(-1);
