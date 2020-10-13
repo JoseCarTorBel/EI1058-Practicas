@@ -1,0 +1,39 @@
+#include<stdio.h> 
+#include <unistd.h> 
+#include <stdlib.h> 
+#include <sys/types.h> 
+#include <sys/stat.h> 
+#include <fcntl.h>
+
+int main(int argc, char *argv[])
+{
+	if(argc < 2 || argc > 3){
+		printf("Error.\n \t Uso ./ej fichero\n");
+		exit(-1);
+	}
+
+	char fich[],dato;
+	char f_salida[];
+
+	if(argc == 3) 
+	{
+		f_salida = argv[1];
+		fich = argv[2];
+	} else {
+		fich = argv[1];
+		f_salida="fichero";
+		printf("fichero %s\n",argv[1] );
+	}
+
+	
+	printf("fichero %s\n",fich );
+
+	close(1);
+	open(f_salida,O_WRONLY|O_CREAT|O_APPEND,0777);
+	
+	write(1,&dato,sizeof(dato));
+	
+	execlp("ls","ls","-l",fich,NULL);
+	perror("Error ejecucanto ls");
+	exit(-1);
+}
