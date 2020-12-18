@@ -1,0 +1,276 @@
+/* @author Jose Carlos Torró Belda */
+
+#include <stdio.h>
+#include <string.h>
+#include <unistd.h>
+#include <stdlib.h>
+#include <sys/types.h>
+#include <sys/wait.h>
+#include <pwd.h>
+
+
+
+#define PROMPT    "\n=> "
+#define ESPACIO   ' '
+
+#define MAX_BUF   1024
+#define MAX_ARGS  32
+#define MAX_COMANDOS    10
+
+#define HOST 1024
+#define USER 64
+#define PATH 256
+
+
+//#define DEBUG
+
+struct comando{
+  char *argv[MAX_ARGS];
+  int nargs;
+};
+
+int status;
+
+const char *getUserName()
+{
+ 	uid_t uid = geteuid();
+  	struct passwd *pw = getpwuid(uid);
+  	if (pw)
+  	{
+  		return pw->pw_name;
+  	}
+  	return "";
+}
+
+/* Ejecuta un comando simple sin tuberías*/
+void ejecuta_comando_simple(struct comando *comando)
+{
+
+	if(fork()==0)
+	{
+		execvp(comando -> argv[0], comando -> argv);
+		perror("Error ejecutando comando simple ");
+		exit(-1);
+	} else {
+		wait(&status);
+	}
+}
+
+void ejecuta_procesos_tuberias(int num_comandos, struct comando lista_comandos[])
+{
+	int i, fd[2];
+
+	/* El proceso principal se debe esperar */
+	if(fork()==0)
+	{	
+		for(i=0; i<num_comandos-1; i++)
+		{
+			pipe(fd);
+			if(fork() == 0)
+		   	{
+		    	close(1); dup(fd[1]); close(fd[1]); close(fd[0]);
+		   	} else {
+		    	close(0); dup(fd[0]); close(fd[0]); close(fd[1]);
+		      	execvp(lista_comandos[num_comandos-1-i].argv[0],lista_comandos[num_comandos-1-i].argv);
+		      	perror("Error en la ejecución");
+		      	exit(-1);
+		   } /* end fork */
+		} /* end for */	
+		execvp(lista_comandos[num_comandos-1-i].argv[0],lista_comandos[num_comandos-1-i].argv);
+		perror("Error en la ejecución");
+		exit(-1);
+	}else{
+		wait(&status);
+	}
+}
+
+
+int arrange(char *buffer) 
+{
+  	int i = 0, j = 0;
+	
+	while (buffer[i]) {
+        while (buffer[i] == ESPACIO) i++;
+
+        while ((buffer[i] != ESPACIO) && buffer[i]) 
+            buffer[j++] = buffer[i++];
+        
+        if (! buffer[i]) {
+            if(buffer[i-2] == ESPACIO) {
+                buffer[j-2] = '\0';
+            } else {
+                buffer[j-1] = '\0';
+            }
+        } else {
+            buffer[j++] = ESPACIO;
+        }
+    }
+	
+ return(j);
+}
+
+
+int makeargs(char *buffer, char *args[])
+{
+	int i=0;
+	char *puntero;
+
+	puntero = buffer;
+	args[i++]=puntero;
+
+	while(puntero = strchr(puntero, ESPACIO))
+	{
+		*puntero++ = '\0';
+		args[i++] = puntero;
+	}
+	args[i] = NULL;
+	return (i);
+}
+
+int desglosar_tub(char *buffer, struct comando lista_comandos[])
+{
+	char *p1, *p2;
+  	int i,j,n;
+  	int ncomandos=0;
+
+  	p1=buffer;
+  	i=0;
+
+
+	#ifdef DEBUG
+		printf("\nLínea de comandos: #%s#\n", buffer);
+	#endif
+
+	n=arrange(p1);
+
+	if(n==1){		
+		return 0; /* No hay comandos, sino blancos o <CR> */		
+	}
+
+	 while (p2=strchr(p1,'|')) {
+        if (*(p2-1)==ESPACIO) {
+            *(p2-1)='\0'; 
+        } else {
+            *p2='\0';
+        }
+       
+        p2++;
+        lista_comandos[ncomandos].nargs = makeargs(p1,lista_comandos[ncomandos].argv);
+        ncomandos++;
+        if (p2!=NULL) { 
+            if (*p2!=ESPACIO) 
+                p1=p2; 
+            else 
+                p1=p2+1;
+        }
+    } /* WHILE */
+
+	lista_comandos[ncomandos].nargs = makeargs(p1,lista_comandos[ncomandos].argv);
+    ncomandos++;
+
+	#ifdef DEBUG
+		for (i=0; i<ncomandos; i++)
+	  	{  
+	  		printf("Comando %d (%d argumentos):\n",i,lista_comandos[i].nargs);
+	     	j=0;
+	     	while(lista_comandos[i].argv[j])
+	     	{ 
+	     		printf("comando[%d].argv[%d] (dir. %016lX) = #%s#\n", i, j,(unsigned long) (lista_comandos[i].argv[j]), lista_comandos[i].argv[j]);
+	       		j++;
+	     	}
+	  	}
+	#endif	
+	
+	 /* Número de componentes del vector lista_comandos (empezando en 1) */
+	return ncomandos;
+}
+
+/*
+void redireccionar_entrada() 
+{
+
+
+}
+*/
+
+
+
+/* ___________________________________________________ */
+
+int main(int argc, char const *argv[])
+{
+
+	#ifdef DEBUG
+		int i;
+	#endif
+	  
+
+    char buffer[MAX_BUF], *args[MAX_ARGS];
+    struct comando lista_comandos[MAX_COMANDOS];
+
+    puts("\n MINISHELL \n");
+
+   // char user = getUserName();
+
+    char hostname[HOST];
+	hostname[HOST] = '\0';
+	gethostname(hostname, HOST);
+
+	char path[PATH];
+    getcwd(path, sizeof(path));
+
+	char user[USER];
+    getlogin_r(user, sizeof(user));
+
+
+    /* Bucle infinito */
+    while(1) 
+    {
+    	printf("%s@%s:%s$ ",user,hostname,path);
+    	if(fgets(buffer, MAX_BUF, stdin)==NULL){
+    		continue;
+    	}
+
+    	#ifdef DEBUG
+    		printf("Estoy aquí 01\n");
+    	#endif
+
+    	int num_comandos = desglosar_tub(buffer, lista_comandos);
+    	
+
+    	#ifdef DEBUG
+    		printf("Estoy aquí 02\n");
+    	#endif
+
+    	if(!num_comandos) {
+       		continue;
+    	}
+    	
+		#ifdef DEBUG
+    		printf("Num_comandos = %d\n", num_comandos);
+    	#endif
+    	/* TODO Redireccionar entrada estandar */
+    	if(num_comandos == 1) /* En caso de ser comando simple */
+    	{	
+
+    		ejecuta_comando_simple(&lista_comandos[0]);
+    	}else {
+    		ejecuta_procesos_tuberias(num_comandos, lista_comandos);
+    	}
+    	printf("\n");
+    } /* while(1) */
+} /* Main */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
