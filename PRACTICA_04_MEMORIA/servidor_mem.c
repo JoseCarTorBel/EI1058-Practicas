@@ -11,8 +11,8 @@
 
 MODULE_LICENSE("GPL");
 
-char* puntero; // Puntero a la zona de memoria reservada
-int num_bloques=0;
+static char* puntero; // Puntero a la zona de memoria reservada
+static int num_bloques=0;
 
 
 char *reserva_memoria(int i);
@@ -24,11 +24,11 @@ int init_module(void)
     return 0;
 }
 
-void cleanup_mocule(void)
+void cleanup_module(void)
 {
     libera_memoria();
     
-    printk("server_mem eliminado módulo server_mem.\n");
+    printk("\nservidor_mem: eliminado módulo server_mem.\n");
     printk("servidor_mem: Se han reservado con éxito un total de %d bloques.\n",num_bloques);
 
 }
@@ -42,23 +42,26 @@ char *reserva_memoria(int i)
 {
     if(i<0 || i>max_bloques)
     {
+       printk("servidor_mem: No se han podido reservar memoria.\n");
        return NULL; // No se puede reservar la memoria
+       
     }
     
     puntero = kmalloc(sizeof(tamanyo_bloque*i), GFP_KERNEL);
-    printk("servidor_mem: Se han reservado %d bloques a partir de la dirección 0x%16lX\n",num_bloques,(unsigned long)puntero);
-    num_bloques+=1;
+    printk("\nservidor_mem: Se han reservado %d bloques a partir de la dirección 0x%16lX\n\n",i,(unsigned long)puntero);
+    num_bloques+=i;
     return puntero;
 }
 
 /**
- * Libera la memoria del puntero.
+* Libera la memoria del puntero.
 */
 EXPORT_SYMBOL(libera_memoria);
-void libera_memoria(void)
-{
+void libera_memoria(void){
+
     if(puntero != NULL)
-    {
+    {	    
+	printk("servidor_mem: Se libera la memoria reservada a partir de la dirección  0x%16lX\n",(unsigned long)puntero);
         kfree(puntero);
     }
     puntero = NULL;
