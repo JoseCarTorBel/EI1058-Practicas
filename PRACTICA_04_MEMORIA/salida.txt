@@ -1,120 +1,130 @@
-[  683.401128] servidor_mem: Insertado modulo servidor_mem 
-[  691.744635] 
+[  402.536541] servidor_mem: Insertado modulo servidor_mem 
+[  406.840191] 
 
 Cliente insertado modulo 
 
-[  691.744642] 
-servidor_mem: Se han reservado 4 bloques a partir de la dirección 0xFFFF98358016F5E8
+[  406.840197] 
+servidor_mem: Se han reservado 2 bloques a partir de la dirección 0xFFFF920C2012E740
 
-[  691.744650] cliente_mem: CR0 vale: 0x0000000080050033 y PG está activado
-[  691.744652] cliente_mem: CR4 vale: 0x00000000000606F0 y PAE está activado
-[  691.744654] cliente_mem: EFER vale: 0x0000000000000D01 y LME está activado
-[  691.744655] cliente_mem: CR3 vale: 0x0000000041268000 y su direccion virtual es 0xFFFF9835C1268000
+[  406.840204] cliente_mem: CR0 vale: 0x0000000080050033 y PG está activado
+[  406.840206] cliente_mem: CR4 vale: 0x00000000000606F0 y PAE está activado
+[  406.840208] cliente_mem: EFER vale: 0x0000000000000D01 y LME está activado
+[  406.840210] cliente_mem: CR3 vale: 0x0000000051FC2000 y su direccion virtual es 0xFFFF920C11FC2000
 cliente_mem: Bloque 0 ****************
 
-[  691.744658] cliente_mem: Dirección física del bloque: 0x000000000016F5E8. Dirección virtual del bloque: 0xFFFF98358016F5E8 
-[  691.744660] cliente_mem: Indice TP nivel 1: 304(0x130)
-[  691.744661] cliente_mem: Flags entrada TP nivel 1:067
-[  691.744663] cliente_mem: Indice TP nivel 2: 214(0x D6)
-[  691.744665] cliente_mem: Flags entrada TP nivel 2:067
-[  691.744666] cliente_mem: Indice TP nivel 3: 0(0x  0)
-[  691.744668] cliente_mem: Flags entrada TP nivel 3:067
-[  691.744669] cliente_mem: la pagina es de 2 MB
-[  691.744671] cliente_mem: Dirección física del bloque: 0x000000000016F5E8. Dirección virtual del bloque: 0xFFFF98358016F5E8 
-[  691.744673] cliente_mem: Marco TP nivel 1: Direccion fisica: 0x0000000031670000 . Direccion virtual: 0xFFFF9835B1670000
-[  691.744674] cliente_mem: Marco TP nivel 2: Direccion fisica: 0x0000000031671000 . Direccion virtual: 0xFFFF9835B1671000
-[  691.744676] cliente_mem: Marco TP nivel 3: Direccion fisica: 0x0000000031672000 . Direccion virtual: 0xFFFF9835B1672000
-[  691.744678] cliente_mem: Direccion del marco: 0x000000000016F000. Direccion de la página 0xFFFF983580000000
-[  691.744679] 
+[  406.840212] cliente_mem: Dirección física del bloque: 0x000000006012E740. Dirección virtual del bloque: 0xFFFF920C2012E740 
+[  406.840214] cliente_mem: Indice TP nivel 1: 292(0x124)
+[  406.840216] cliente_mem: Flags entrada TP nivel 1:067
+[  406.840217] cliente_mem: Indice TP nivel 2: 48(0x 30)
+[  406.840219] cliente_mem: Flags entrada TP nivel 2:067
+[  406.840220] cliente_mem: Indice TP nivel 3: 256(0x100)
+[  406.840222] cliente_mem: Flags entrada TP nivel 3:0E3
+[  406.840223] cliente_mem: la pagina es de 2 MB
+[  406.840225] cliente_mem: Dirección física del bloque: 0x000000006012E740. Dirección virtual del bloque: 0xFFFF920C2012E740 
+[  406.840227] cliente_mem: Marco TP nivel 1: Direccion fisica: 0x0000000051FC2000. Direccion virtual: 0xFFFF920C11FC2000
+[  406.840228] cliente_mem: Marco TP nivel 2: Direccion fisica: 0x000000003CA70000. Direccion virtual: 0xFFFF920BFCA70000
+[  406.840230] cliente_mem: Marco TP nivel 3: Direccion fisica: 0x000000003CA74000. Direccion virtual: 0xFFFF920BFCA74000
+[  406.840232] cliente_mem: Direccion del marco: 0x0000000060000000. Direccion de la página 0xFFFF920C20000000
+[  406.840234] 
 cliente_mem: Bloque 1 ****************
 
-[  691.744683] cliente_mem: Dirección física del bloque: 0x0000000000170970. Dirección virtual del bloque: 0xFFFF983580170970 
-[  691.744685] cliente_mem: Indice TP nivel 1: 304(0x130)
-[  691.744686] cliente_mem: Flags entrada TP nivel 1:067
-[  691.744688] cliente_mem: Indice TP nivel 2: 214(0x D6)
-[  691.744689] cliente_mem: Flags entrada TP nivel 2:067
-[  691.744691] cliente_mem: Indice TP nivel 3: 0(0x  0)
-[  691.744692] cliente_mem: Flags entrada TP nivel 3:067
-[  691.744694] cliente_mem: Indice TP nivel 4: 368(0x170)
-[  691.744695] cliente_mem: Flags entrada TP nivel 4:063
-[  691.744696] cliente_mem: la pagina es de 4 KB
-[  691.744698] cliente_mem: Dirección física del bloque: 0x0000000000170970. Dirección virtual del bloque: 0xFFFF983580170970 
-[  691.744700] cliente_mem: Marco TP nivel 1: Direccion fisica: 0x0000000031670000 . Direccion virtual: 0xFFFF9835B1670000
-[  691.744702] cliente_mem: Marco TP nivel 2: Direccion fisica: 0x0000000031671000 . Direccion virtual: 0xFFFF9835B1671000
-[  691.744703] cliente_mem: Marco TP nivel 3: Direccion fisica: 0x0000000031672000 . Direccion virtual: 0xFFFF9835B1672000
-[  691.744705] cliente_mem: Marco TP nivel 4: Direccion fisica: 0x0000000000170000 . Direccion virtual: 0xFFFF983580170000
-[  691.744707] cliente_mem: Direccion del marco: 0x0000000000170000. Direccion de la página 0xFFFF983580170800
-[  691.744708] 
-cliente_mem: Bloque 2 ****************
-
-[  691.744712] cliente_mem: Dirección física del bloque: 0x0000000000173080. Dirección virtual del bloque: 0xFFFF983580173080 
-[  691.744713] cliente_mem: Indice TP nivel 1: 304(0x130)
-[  691.744715] cliente_mem: Flags entrada TP nivel 1:067
-[  691.744716] cliente_mem: Indice TP nivel 2: 214(0x D6)
-[  691.744718] cliente_mem: Flags entrada TP nivel 2:067
-[  691.744719] cliente_mem: Indice TP nivel 3: 0(0x  0)
-[  691.744721] cliente_mem: Flags entrada TP nivel 3:067
-[  691.744722] cliente_mem: la pagina es de 2 MB
-[  691.744724] cliente_mem: Dirección física del bloque: 0x0000000000173080. Dirección virtual del bloque: 0xFFFF983580173080 
-[  691.744725] cliente_mem: Marco TP nivel 1: Direccion fisica: 0x0000000031670000 . Direccion virtual: 0xFFFF9835B1670000
-[  691.744727] cliente_mem: Marco TP nivel 2: Direccion fisica: 0x0000000031671000 . Direccion virtual: 0xFFFF9835B1671000
-[  691.744729] cliente_mem: Marco TP nivel 3: Direccion fisica: 0x0000000031672000 . Direccion virtual: 0xFFFF9835B1672000
-[  691.744731] cliente_mem: Direccion del marco: 0x0000000000173000. Direccion de la página 0xFFFF983580000000
-[  691.744732] 
-cliente_mem: Bloque 3 ****************
-
-[  691.744735] cliente_mem: Dirección física del bloque: 0x0000000000176B18. Dirección virtual del bloque: 0xFFFF983580176B18 
-[  691.744737] cliente_mem: Indice TP nivel 1: 304(0x130)
-[  691.744739] cliente_mem: Flags entrada TP nivel 1:067
-[  691.744740] cliente_mem: Indice TP nivel 2: 214(0x D6)
-[  691.744741] cliente_mem: Flags entrada TP nivel 2:067
-[  691.744743] cliente_mem: Indice TP nivel 3: 0(0x  0)
-[  691.744744] cliente_mem: Flags entrada TP nivel 3:067
-[  691.744746] cliente_mem: Indice TP nivel 4: 374(0x176)
-[  691.744747] cliente_mem: Flags entrada TP nivel 4:063
-[  691.744749] cliente_mem: la pagina es de 4 KB
-[  691.744750] cliente_mem: Dirección física del bloque: 0x0000000000176B18. Dirección virtual del bloque: 0xFFFF983580176B18 
-[  691.744752] cliente_mem: Marco TP nivel 1: Direccion fisica: 0x0000000031670000 . Direccion virtual: 0xFFFF9835B1670000
-[  691.744754] cliente_mem: Marco TP nivel 2: Direccion fisica: 0x0000000031671000 . Direccion virtual: 0xFFFF9835B1671000
-[  691.744756] cliente_mem: Marco TP nivel 3: Direccion fisica: 0x0000000031672000 . Direccion virtual: 0xFFFF9835B1672000
-[  691.744757] cliente_mem: Marco TP nivel 4: Direccion fisica: 0x0000000000176000 . Direccion virtual: 0xFFFF983580176000
-[  691.744759] cliente_mem: Direccion del marco: 0x0000000000176000. Direccion de la página 0xFFFF983580176800
-[  699.897056] servidor_mem: Se libera la memoria reservada a partir de la dirección  0xFFFF98358016F5E8
-[  699.897059] 
+[  406.840237] cliente_mem: Dirección física del bloque: 0x000000006012FAC8. Dirección virtual del bloque: 0xFFFF920C2012FAC8 
+[  406.840239] cliente_mem: Indice TP nivel 1: 292(0x124)
+[  406.840240] cliente_mem: Flags entrada TP nivel 1:067
+[  406.840242] cliente_mem: Indice TP nivel 2: 48(0x 30)
+[  406.840243] cliente_mem: Flags entrada TP nivel 2:067
+[  406.840245] cliente_mem: Indice TP nivel 3: 256(0x100)
+[  406.840246] cliente_mem: Flags entrada TP nivel 3:0E3
+[  406.840247] cliente_mem: la pagina es de 2 MB
+[  406.840249] cliente_mem: Dirección física del bloque: 0x000000006012FAC8. Dirección virtual del bloque: 0xFFFF920C2012FAC8 
+[  406.840251] cliente_mem: Marco TP nivel 1: Direccion fisica: 0x0000000051FC2000. Direccion virtual: 0xFFFF920C11FC2000
+[  406.840252] cliente_mem: Marco TP nivel 2: Direccion fisica: 0x000000003CA70000. Direccion virtual: 0xFFFF920BFCA70000
+[  406.840254] cliente_mem: Marco TP nivel 3: Direccion fisica: 0x000000003CA74000. Direccion virtual: 0xFFFF920BFCA74000
+[  406.840256] cliente_mem: Direccion del marco: 0x0000000060000000. Direccion de la página 0xFFFF920C20000000
+[  411.848152] servidor_mem: Se libera la memoria reservada a partir de la dirección  0xFFFF920C2012E740
+[  411.848155] 
 
 cliente_mem: Eliminado módulo cliente_mem 
 
-[  702.816905] 
+[  416.374895] 
 
 Cliente insertado modulo 
 
-[  702.816911] 
-servidor_mem: Se han reservado 1 bloques a partir de la dirección 0xFFFF98358016F5F0
+[  416.374900] 
+servidor_mem: Se han reservado 4 bloques a partir de la dirección 0xFFFF920C2012E450
 
-[  702.816919] cliente_mem: CR0 vale: 0x0000000080050033 y PG está activado
-[  702.816922] cliente_mem: CR4 vale: 0x00000000000606F0 y PAE está activado
-[  702.816923] cliente_mem: EFER vale: 0x0000000000000D01 y LME está activado
-[  702.816925] cliente_mem: CR3 vale: 0x0000000041228000 y su direccion virtual es 0xFFFF9835C1228000
+[  416.374906] cliente_mem: CR0 vale: 0x0000000080050033 y PG está activado
+[  416.374907] cliente_mem: CR4 vale: 0x00000000000606F0 y PAE está activado
+[  416.374909] cliente_mem: EFER vale: 0x0000000000000D01 y LME está activado
+[  416.374910] cliente_mem: CR3 vale: 0x0000000053980000 y su direccion virtual es 0xFFFF920C13980000
 cliente_mem: Bloque 0 ****************
 
-[  702.816927] cliente_mem: Dirección física del bloque: 0x000000000016F5F0. Dirección virtual del bloque: 0xFFFF98358016F5F0 
-[  702.816930] cliente_mem: Indice TP nivel 1: 304(0x130)
-[  702.816931] cliente_mem: Flags entrada TP nivel 1:067
-[  702.816933] cliente_mem: Indice TP nivel 2: 214(0x D6)
-[  702.816934] cliente_mem: Flags entrada TP nivel 2:067
-[  702.816936] cliente_mem: Indice TP nivel 3: 0(0x  0)
-[  702.816937] cliente_mem: Flags entrada TP nivel 3:067
-[  702.816939] cliente_mem: la pagina es de 2 MB
-[  702.816940] cliente_mem: Dirección física del bloque: 0x000000000016F5F0. Dirección virtual del bloque: 0xFFFF98358016F5F0 
-[  702.816942] cliente_mem: Marco TP nivel 1: Direccion fisica: 0x0000000031670000 . Direccion virtual: 0xFFFF9835B1670000
-[  702.816944] cliente_mem: Marco TP nivel 2: Direccion fisica: 0x0000000031671000 . Direccion virtual: 0xFFFF9835B1671000
-[  702.816946] cliente_mem: Marco TP nivel 3: Direccion fisica: 0x0000000031672000 . Direccion virtual: 0xFFFF9835B1672000
-[  702.816948] cliente_mem: Direccion del marco: 0x000000000016F000. Direccion de la página 0xFFFF983580000000
-[  704.936666] servidor_mem: Se libera la memoria reservada a partir de la dirección  0xFFFF98358016F5F0
-[  704.936669] 
+[  416.374912] cliente_mem: Dirección física del bloque: 0x000000006012E450. Dirección virtual del bloque: 0xFFFF920C2012E450 
+[  416.374913] cliente_mem: Indice TP nivel 1: 292(0x124)
+[  416.374914] cliente_mem: Flags entrada TP nivel 1:067
+[  416.374916] cliente_mem: Indice TP nivel 2: 48(0x 30)
+[  416.374917] cliente_mem: Flags entrada TP nivel 2:067
+[  416.374918] cliente_mem: Indice TP nivel 3: 256(0x100)
+[  416.374919] cliente_mem: Flags entrada TP nivel 3:0E3
+[  416.374920] cliente_mem: la pagina es de 2 MB
+[  416.374921] cliente_mem: Dirección física del bloque: 0x000000006012E450. Dirección virtual del bloque: 0xFFFF920C2012E450 
+[  416.374923] cliente_mem: Marco TP nivel 1: Direccion fisica: 0x0000000053980000. Direccion virtual: 0xFFFF920C13980000
+[  416.374924] cliente_mem: Marco TP nivel 2: Direccion fisica: 0x000000003CA70000. Direccion virtual: 0xFFFF920BFCA70000
+[  416.374925] cliente_mem: Marco TP nivel 3: Direccion fisica: 0x000000003CA74000. Direccion virtual: 0xFFFF920BFCA74000
+[  416.374926] cliente_mem: Direccion del marco: 0x0000000060000000. Direccion de la página 0xFFFF920C20000000
+[  416.374928] 
+cliente_mem: Bloque 1 ****************
+
+[  416.374930] cliente_mem: Dirección física del bloque: 0x000000006012F7D8. Dirección virtual del bloque: 0xFFFF920C2012F7D8 
+[  416.374931] cliente_mem: Indice TP nivel 1: 292(0x124)
+[  416.374932] cliente_mem: Flags entrada TP nivel 1:067
+[  416.374933] cliente_mem: Indice TP nivel 2: 48(0x 30)
+[  416.374934] cliente_mem: Flags entrada TP nivel 2:067
+[  416.374936] cliente_mem: Indice TP nivel 3: 256(0x100)
+[  416.374937] cliente_mem: Flags entrada TP nivel 3:0E3
+[  416.374938] cliente_mem: la pagina es de 2 MB
+[  416.374939] cliente_mem: Dirección física del bloque: 0x000000006012F7D8. Dirección virtual del bloque: 0xFFFF920C2012F7D8 
+[  416.374940] cliente_mem: Marco TP nivel 1: Direccion fisica: 0x0000000053980000. Direccion virtual: 0xFFFF920C13980000
+[  416.374941] cliente_mem: Marco TP nivel 2: Direccion fisica: 0x000000003CA70000. Direccion virtual: 0xFFFF920BFCA70000
+[  416.374943] cliente_mem: Marco TP nivel 3: Direccion fisica: 0x000000003CA74000. Direccion virtual: 0xFFFF920BFCA74000
+[  416.374944] cliente_mem: Direccion del marco: 0x0000000060000000. Direccion de la página 0xFFFF920C20000000
+[  416.374945] 
+cliente_mem: Bloque 2 ****************
+
+[  416.374947] cliente_mem: Dirección física del bloque: 0x0000000060131EE8. Dirección virtual del bloque: 0xFFFF920C20131EE8 
+[  416.374949] cliente_mem: Indice TP nivel 1: 292(0x124)
+[  416.374950] cliente_mem: Flags entrada TP nivel 1:067
+[  416.374951] cliente_mem: Indice TP nivel 2: 48(0x 30)
+[  416.374952] cliente_mem: Flags entrada TP nivel 2:067
+[  416.374953] cliente_mem: Indice TP nivel 3: 256(0x100)
+[  416.374954] cliente_mem: Flags entrada TP nivel 3:0E3
+[  416.374955] cliente_mem: la pagina es de 2 MB
+[  416.374956] cliente_mem: Dirección física del bloque: 0x0000000060131EE8. Dirección virtual del bloque: 0xFFFF920C20131EE8 
+[  416.374957] cliente_mem: Marco TP nivel 1: Direccion fisica: 0x0000000053980000. Direccion virtual: 0xFFFF920C13980000
+[  416.374959] cliente_mem: Marco TP nivel 2: Direccion fisica: 0x000000003CA70000. Direccion virtual: 0xFFFF920BFCA70000
+[  416.374960] cliente_mem: Marco TP nivel 3: Direccion fisica: 0x000000003CA74000. Direccion virtual: 0xFFFF920BFCA74000
+[  416.374961] cliente_mem: Direccion del marco: 0x0000000060000000. Direccion de la página 0xFFFF920C20000000
+[  416.374962] 
+cliente_mem: Bloque 3 ****************
+
+[  416.374965] cliente_mem: Dirección física del bloque: 0x0000000060135980. Dirección virtual del bloque: 0xFFFF920C20135980 
+[  416.374966] cliente_mem: Indice TP nivel 1: 292(0x124)
+[  416.374967] cliente_mem: Flags entrada TP nivel 1:067
+[  416.374968] cliente_mem: Indice TP nivel 2: 48(0x 30)
+[  416.374969] cliente_mem: Flags entrada TP nivel 2:067
+[  416.374970] cliente_mem: Indice TP nivel 3: 256(0x100)
+[  416.374971] cliente_mem: Flags entrada TP nivel 3:0E3
+[  416.374972] cliente_mem: la pagina es de 2 MB
+[  416.374973] cliente_mem: Dirección física del bloque: 0x0000000060135980. Dirección virtual del bloque: 0xFFFF920C20135980 
+[  416.374975] cliente_mem: Marco TP nivel 1: Direccion fisica: 0x0000000053980000. Direccion virtual: 0xFFFF920C13980000
+[  416.374976] cliente_mem: Marco TP nivel 2: Direccion fisica: 0x000000003CA70000. Direccion virtual: 0xFFFF920BFCA70000
+[  416.374977] cliente_mem: Marco TP nivel 3: Direccion fisica: 0x000000003CA74000. Direccion virtual: 0xFFFF920BFCA74000
+[  416.374978] cliente_mem: Direccion del marco: 0x0000000060000000. Direccion de la página 0xFFFF920C20000000
+[  420.487703] servidor_mem: Se libera la memoria reservada a partir de la dirección  0xFFFF920C2012E450
+[  420.487707] 
 
 cliente_mem: Eliminado módulo cliente_mem 
 
-[  708.528950] 
+[  426.999812] 
 servidor_mem: eliminado módulo server_mem.
-[  708.528955] servidor_mem: Se han reservado con éxito un total de 5 bloques.
+[  426.999816] servidor_mem: Se han reservado con éxito un total de 6 bloques.
